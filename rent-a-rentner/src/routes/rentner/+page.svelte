@@ -32,12 +32,6 @@
 		margin: 0 auto 2rem;
 	}
 
-	.rentner .buttons {
-		display: flex;
-		gap: 1rem;
-		justify-content: center;
-		flex-wrap: wrap;
-	}
 
     .title {
         align-items: top;
