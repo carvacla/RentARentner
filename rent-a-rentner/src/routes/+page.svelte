@@ -1,0 +1,87 @@
+<script>
+	// Kein Script notwendig für statische Startseite
+</script>
+
+<style>
+	.main {
+		background: linear-gradient(to bottom, #0f172a, #1e293b);
+		color: white;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding: 2rem;
+		box-sizing: border-box;
+	}
+
+	.main h1 {
+		font-size: 2.5rem;
+		font-weight: 800;
+		margin-bottom: 1rem;
+	}
+
+	.main h1 .highlight {
+		color: #dec41c;
+	}
+
+	.main p {
+		font-size: 1.25rem;
+		color: #cbd5e1;
+		max-width: 600px;
+		margin: 0 auto 2rem;
+	}
+
+	.main .buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.main .buttons a {
+		text-decoration: none;
+		padding: 0.75rem 1.5rem;
+		border-radius: 9999px;
+		font-weight: 600;
+		transition: background-color 0.2s ease;
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+	}
+
+	.main .buttons .primary {
+		background-color: #dec41c;
+		color: white;
+	}
+
+	.main .buttons .primary:hover {
+		background-color: #b29f21;
+	}
+
+	.main .buttons .secondary {
+		background-color: #374151;
+		color: white;
+	}
+
+	.main .buttons .secondary:hover {
+		background-color: #4b5563;
+	}
+
+	@media (min-width: 768px) {
+		.main h1 {
+			font-size: 3rem;
+		}
+	}
+</style>
+
+<section class="main">
+	<div>
+		<h1>Rent a <span class="highlight">Rentner</span>.</h1>
+		<p>
+			Rent someone great.
+		</p>
+		<div class="buttons">
+			<a class="primary" href="/rentner">Alle Rentner</a>
+			<a class="secondary" href="https://github.com" target="_blank">View on GitHub</a>
+		</div>
+	</div>
+</section>
