@@ -1,7 +1,3 @@
-<script>
-	// Kein Script notwendig für statische Startseite
-</script>
-
 <style>
 	.rentner {
 		background: #0f172a;

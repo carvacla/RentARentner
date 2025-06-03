@@ -1,6 +1,5 @@
 <script>
 	import { page } from '$app/stores';
-	export let data;
 </script>
 
 <style>
@@ -76,18 +75,11 @@
 	<div class="logo">
 		<a href="/">Rent a Rentner</a>
 	</div>
-	<div class="navlinks">
-		{#if data.user}
-		<a href="/profile">👤 {data.user.name}</a>
-		<form method="POST" action="/logout">
-			<button type="submit">Logout</button>
-		</form>
-		{:else}
-			<a href="/login">Login</a>
-			<a href="/register">Registrieren</a>
-			<a href="/about">Über uns</a>
-		{/if}
-  </div>
+	<nav class="navlinks">
+		<a href="/rentner">Rentner</a>
+		<a href="/login">Login</a>
+		<a href="/register">Registrieren</a>
+	</nav>
 </header>
 
 <main>
