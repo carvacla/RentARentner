@@ -80,10 +80,57 @@ async function getUserById(userId) {
     return null;
 }
 
+async function getAllRentner() {
+    try {
+        const rentner = await db.collection('users').find({ type: 'rentner' }).toArray();
+
+        rentner.forEach(r => {
+            r._id = r._id.toString();
+        });
+        
+        if (!rentner) {
+            console.log("Keine Rentner gefunden.");
+            return { error: 'Keine Rentner gefunden.' };
+        }
+
+        return { success: true, rentner: rentner, rentnerId: rentner._id };
+    } catch (error) {
+        // TODO Claudia: errorhandling
+        console.log("Fehler beim Suchen der Rentner: ", error.message);
+    }
+    return null;
+}
+
+async function findOne(rentner_id) {
+    try {
+        if (!ObjectId.isValid(rentner_id)) {
+            console.log("Ungültige Rentner-ID: ", rentner_id);
+            throw error(400, 'Ungültige Rentner-ID');
+        }
+
+        const rentner = await db.collection('users').findOne({
+            _id: new ObjectId(rentner_id)
+        });
+
+        if (!rentner) {
+            throw error(404, 'Rentner nicht gefunden');
+        }
+
+        rentner._id = rentner._id.toString();
+
+        return {
+            rentner: rentner,
+        };
+    } catch (error) {        
+        console.log("Fehler beim Suchen der Rentner: ", error.message);
+    }    
+}
 
 export default {
   loginUser,
   createUser,
   deleteUser,
-  getUserById
+  getUserById,
+  getAllRentner,
+  findOne
 };

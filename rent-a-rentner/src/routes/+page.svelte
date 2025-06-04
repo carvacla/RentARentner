@@ -1,5 +1,6 @@
 <script>
 	import "./styles.css"
+	export let data;
 </script>
 
 <style>
@@ -14,7 +15,9 @@
 		</p>
 		<div class="buttons">
 			<a class="primary" href="/rentner">Alle Rentner</a>
-			<a class="secondary" href="/register">Jetzt Registrieren</a>
+			{#if !data.user}
+				<a class="secondary" href="/register">Jetzt Registrieren</a>
+			{/if}
 		</div>
 	</div>
 </section>

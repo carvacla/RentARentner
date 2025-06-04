@@ -12,5 +12,9 @@
 		<p>
 			Wo Erfahrung zählt - Rentner@Work.
 		</p>
+        <h1>Unsere <span class="highlight">Mission</span>.</h1>
+        <p>
+            Erfahrung die anpackt.
+        </p>
 	</div>
 </section>
