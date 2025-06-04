@@ -1,21 +1,24 @@
-import { db } from '$lib/utils/db.js';
+import db from '$lib/utils/db.js';
 import bcrypt from 'bcrypt';
 import { redirect, fail } from '@sveltejs/kit';
 
+
 export const actions = {
-	default: async ({ request, cookies }) => {
+	login: async ({ request, cookies }) => {
 		const data = await request.formData();
 		const email = data.get('email');
 		const password = data.get('password');
+        
+        const result = await db.loginUser(email, password);
 
-		const user = await db.collection('users').findOne({ email });
-		if (!user) return fail(400, { error: 'E-Mail nicht gefunden' });
+        console.log("Login result:", result);
 
-		const valid = await bcrypt.compare(password, user.passwordHash);
-		if (!valid) return fail(400, { error: 'Falsches Passwort' });
+        if (!result) {
+            console.log("Login fehlgeschlagen");
+            return { success: false, message: "Login hat nicht funktioniert" };
+        }
 
-		// Simple Session via Cookie
-		cookies.set('session', user._id.toString(), {
+		cookies.set('session', result.userId, {
 			path: '/',
 			httpOnly: true,
 			maxAge: 60 * 60 * 24

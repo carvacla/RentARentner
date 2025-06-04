@@ -74,18 +74,17 @@
 
 <header class="navbar">
 	<div class="logo">
-		<a href="/">Rent a Rentner</a>
+		<a href="/">Rentner@Work</a>
 	</div>
 	<div class="navlinks">
+		<a href="/about">Über uns</a>
+		<a href="rentner">Alle Rentner</a>
 		{#if data.user}
-		<a href="/profile">👤 {data.user.name}</a>
-		<form method="POST" action="/logout">
-			<button type="submit">Logout</button>
-		</form>
+		<a href="/profile">🧓🏻 {data.email} </a>
+		<a href="/" action="/logout" type="submit">Logout</a>
 		{:else}
 			<a href="/login">Login</a>
 			<a href="/register">Registrieren</a>
-			<a href="/about">Über uns</a>
 		{/if}
   </div>
 </header>

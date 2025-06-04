@@ -14,7 +14,7 @@
 		</p>
 		<div class="buttons">
 			<a class="primary" href="/rentner">Alle Rentner</a>
-			<a class="secondary" href="/register" target="_blank">Jetzt Registrieren</a>
+			<a class="secondary" href="/register">Jetzt Registrieren</a>
 		</div>
 	</div>
 </section>

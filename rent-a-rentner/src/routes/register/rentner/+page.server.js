@@ -1,32 +1,23 @@
-import { db } from '$lib/utils/db.js';
+import db from '$lib/utils/db.js';
 import bcrypt from 'bcrypt';
 
 export const actions = {
-	default: async ({ request }) => {
-		const formData = await request.formData();
-		const name = formData.get('name');
-		const email = formData.get('email');
-		const password = formData.get('password');
-		const location = formData.get('location');
-		const servicesRaw = formData.get('services');
+    create: async ({ request }) => {
+    const userForm = await request.formData();
+    let user = {
+      firstname: userForm.get('firstname'),
+      lastname: userForm.get('lastname'),
+      email: userForm.get('email'),
+      password: userForm.get('password'),
+      location: userForm.get('location'),
+      services: userForm.get('services'),
+      type: "rentner"
+    };
 
-		const existingUser = await db.collection('users').findOne({ email });
-		if (existingUser) {
-			return { error: 'E-Mail existiert bereits.' };
-		}
-
-		const passwordHash = await bcrypt.hash(password, 10);
-		const services = servicesRaw.split(',').map(s => s.trim());
-
-		await db.collection('users').insertOne({
-			role: 'rentner',
-			name,
-			email,
-			passwordHash,
-			location,
-			services
-		});
-
-		return { success: true };
-	}
+    const result= await db.createUser(user);
+    if (!result) {
+      return { success: false, message: "Kunde konnte nicht registriert werden." };
+    }
+    return { success: true, message: "Kunde erfolgreich registriert."};
+  }
 };

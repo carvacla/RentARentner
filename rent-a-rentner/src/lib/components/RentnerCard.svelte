@@ -9,26 +9,20 @@
   </div>
   <div class="details">
     <div class="title">
-      <a href={"/rentner/" + movie._id}>{movie.title}</a>
+      <a href={"/rentner/" + rentner._id}>{rentner.firstname}</a>
     </div>
     <div>
-      Jahr: {rentner.year}
+      Vorname: {rentner.firstname}
     </div>
     <div>
-      Dauer: {rentner.length}
+      Nachname: {rentner.lastname}
     </div>
-    {#if rentner.watchlist}
-      <form method="POST" action="?/removeFromWatchlist" use:enhance>
-        <input type="hidden" name="id" value={movie._id} />
-        <button class="btn btn-danger">Von Watchlist entfernen</button>
-      </form>
-    {/if}
-    {#if !rentner.watchlist}
-      <form method="POST" action="?/addToWatchlist" use:enhance>
-        <input type="hidden" name="id" value={movie._id} />
-        <button class="btn btn-success">Auf die Watchlist</button>
-      </form>
-    {/if}
+    <div>
+      Ort: {rentner.location}
+    </div>
+    <div>
+      Skills/Services: {rentner.services.join(', ')}
+    </div>
   </div>
 </div>
 

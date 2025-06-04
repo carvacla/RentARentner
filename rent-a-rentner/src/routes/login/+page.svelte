@@ -42,7 +42,7 @@
 	<div class="login">
 		<h1>Ihr <span class="highlight">Login</span>.</h1>
 		
-        <form class="loginform" method="POST">
+        <form class="loginform" method="POST" action="?/login">
             <input name="email" bind:value={email} placeholder="E-Mail" required />
             <input name="password" type="password" bind:value={password} placeholder="Passwort" required />
             <div class="buttons"><button class="primary" type="submit">Einloggen</button></div>

@@ -10,7 +10,7 @@
 	<div>
 		<h1><span class="highlight">Über uns</span>.</h1>
 		<p>
-			Wir sind unglaublich cool.
+			Wo Erfahrung zählt - Rentner@Work.
 		</p>
 	</div>
 </section>

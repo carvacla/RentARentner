@@ -1,6 +1,8 @@
 <script>
     import "../../styles.css"
-	let name = '';
+    export let form;
+	let firstname = '';
+    let lastname = '';
 	let email = '';
 	let password = '';
 	let location = '';
@@ -45,8 +47,9 @@
 	<div class="register">
 		<h1>Jetzt registrieren als <span class="highlight">Rentner:in</span>.</h1>
 		
-        <form class="registerform" method="POST">
-            <input name="name" bind:value={name} placeholder="Name" required />
+        <form class="registerform" method="POST" action="?/create">
+            <input name="firstname" bind:value={firstname} placeholder="Firstname" required />
+            <input name="lastname" bind:value={lastname} placeholder="Lastname" required />
             <input name="email" type="email" bind:value={email} placeholder="E-Mail" required />
             <input name="password" type="password" bind:value={password} placeholder="Passwort" required />
             <input name="location" bind:value={location} placeholder="Ort" />
@@ -54,7 +57,11 @@
             <div class="buttons"><button class="primary" type="submit">Registrieren</button></div>
         </form>
 
-        <p>Du hast bereits einen Account? <a class="login-highlight" href="/register">Jetzt anmelden</a>.</p>
+        {#if form?.message}
+            <p>{form.message}</p>
+        {/if}
 
+
+        <p>Du hast bereits einen Account? <a class="login-highlight" href="/login">Jetzt anmelden</a>.</p>
 	</div>
 </section>
