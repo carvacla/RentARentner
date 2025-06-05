@@ -5,6 +5,7 @@
 	let rentner = $derived.by(() => {
 		return data.rentner
   	});
+
 </script>
 
 <style>
@@ -64,7 +65,7 @@
 		<p>
 			Rent someone great.
 		</p>
-	</div>		
+	</div>	
 	<div class="row cards">
 		{#each data.rentner as person}
 			<div class="col-sm-6 col-md-6 col-lg-8 mb-4 gx-4">

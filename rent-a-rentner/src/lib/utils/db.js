@@ -126,11 +126,24 @@ async function findOne(rentner_id) {
     }    
 }
 
+async function createBooking(booking) {
+	try {
+		const result = await db.collection('bookings').insertOne(booking);
+		return result.insertedId;
+	} catch (error) {
+        // TODO Claudia: errorhandling
+		console.error("Fehler beim Erstellen der Buchung:", error);
+		return null;
+	}
+}
+
+
 export default {
   loginUser,
   createUser,
   deleteUser,
   getUserById,
   getAllRentner,
-  findOne
+  findOne,
+  createBooking
 };

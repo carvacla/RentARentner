@@ -14,7 +14,10 @@
 			Rent someone great.
 		</p>
 		<div class="buttons">
-			<a class="primary" href="/rentner">Alle Rentner</a>
+			{#if data.user}
+				<a class="primary" href="/profile">Mein Profil</a>
+				<a class="primary" href="/rentner">Alle Rentner</a>
+			{/if}			
 			{#if !data.user}
 				<a class="secondary" href="/register">Jetzt Registrieren</a>
 			{/if}

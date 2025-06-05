@@ -9,7 +9,7 @@ export const actions = {
       return fail(401, { message: 'Nicht eingeloggt' });
     }
 
-    const result = await db.deleteUser(user);
+    const result = await db.deleteUser(userId);
     
     // Session löschen
     cookies.delete('session', { path: '/' });
@@ -17,7 +17,7 @@ export const actions = {
     if (!result) {
 	  return { success: false, message: "Profil konnte nicht gelöscht werden." };
 	}
-    
+
     // Weiterleitung zur Startseite
     throw redirect(303, '/');
 

@@ -70,6 +70,20 @@
 		padding: 2rem;
 		font-size: 0.9rem;
 	}
+
+	.btn-yellow {
+        background-color: #dec41c;
+        color: white;
+        font-weight: bold;
+        border: none;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.2s ease;
+    }
+
+    .btn-yellow:hover {
+    background-color: #c4b01a;
+    }
+
 </style>
 
 <header class="navbar">
@@ -78,10 +92,13 @@
 	</div>
 	<div class="navlinks">
 		<a href="/about">Über uns</a>
-		<a href="rentner">Alle Rentner</a>
 		{#if data.user}
+		<a href="rentner">Alle Rentner</a>
 		<a href="/profile">🧓🏻 {data.email} </a>
-		<a href="/" action="/logout" type="submit">Logout</a>
+		<form method="POST" action="/logout" style="display: inline;">
+			<button class="btn btn-yellow" type="submit">Logout</button>
+		</form>
+        
 		{:else}
 			<a href="/login">Login</a>
 			<a href="/register">Registrieren</a>
@@ -94,5 +111,5 @@
 </main>
 
 <footer>
-	<p>&copy; {new Date().getFullYear()} Rent a Rentner – Alle Rechte vorbehalten an Claudia Carvalho.</p>
+	<p>&copy; {new Date().getFullYear()} Rentner@Work – Alle Rechte vorbehalten an Claudia Carvalho.</p>
 </footer>

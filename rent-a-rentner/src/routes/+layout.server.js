@@ -1,11 +1,11 @@
 export const load = async ({ locals }) => {
-console.log("Load function called with locals:", locals);
+  console.log("Load function called with locals:", locals);
+
+  const user = locals.user ?? null;
+
   return {
-    user: locals.user,
-    name: locals.user.name,
-    email: locals.user.email
+    user,
+    name: user?.name ?? null,
+    email: user?.email ?? null
   };
 };
-
-
- 
