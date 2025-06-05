@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-netlify';
+/*import adapter from '@sveltejs/adapter-netlify';
 export default {
 	kit: {
 		adapter: adapter({
@@ -6,4 +6,12 @@ export default {
 			split: false
 	})
 	}
+};*/
+
+import adapter from '@sveltejs/adapter-vercel';
+
+export default {
+  kit: {
+    adapter: adapter(),
+  }
 };
